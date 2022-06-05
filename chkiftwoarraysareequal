@@ -1,0 +1,25 @@
+class Solution{
+    public:
+
+    //Function to check if two arrays are equal or not.
+    bool check(vector<ll> A, vector<ll> B, int N) {
+        //code here
+           unordered_map<ll,int>map;
+        
+        for(auto it : A){
+            map[it]++;
+        }
+        
+        for(auto it : B){
+            if(map[it]){
+                map[it]--;
+                if(map[it] == 0)
+                    map.erase(it);
+            }
+            else
+                return false;
+            
+        }
+         return true;
+    }
+};
