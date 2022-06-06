@@ -17,3 +17,17 @@ bool flag = true;
                 swap(arr[i], arr[i+1]);
         }
         flag = !flag; 
+        }
+        
+        class Solution{
+public:	
+	// Program for zig-zag conversion of array
+	void zigZag(int arr[], int n) {
+	    // code here
+	   for(int i=1; i<n ; i= i+2)
+	   {
+	       if(arr[i]<arr[i-1]){swap(arr[i],arr[i-1]);}
+	       if((i+1<n)&&arr[i]<arr[i+1]){swap(arr[i],arr[i+1]);}
+	   }
+    }
+    }
