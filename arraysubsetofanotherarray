@@ -1,0 +1,38 @@
+string isSubset(int a1[], int a2[], int n, int m) {
+    /*  map<int, int>M1;
+   for(int i=0; i<m; i++) {
+       M1[a2[i]]++;
+   }
+   int count = M1.size();
+   for(int i=0; i<n; i++) {
+       if(M1.find(a1[i]) != M1.end()) {
+           M1[a1[i]]--;
+           if(M1[a1[i]] == 0) {
+               count--;
+           }
+       }
+   }
+   if(count == 0) {
+       return "Yes";
+   }
+   return "No";
+   */
+     if(n<m){return "No";}
+   else
+   {
+   int arr[100000]={0};
+   
+   
+   for(int i=0;i<n;i++){
+       arr[a1[i]-1] = 1;
+   }
+   
+   for(int i=0;i<m;i++){
+       
+       if(arr[a2[i]-1]!=1){return "No";}
+       
+   }
+   
+   return "Yes";
+   }
+}
