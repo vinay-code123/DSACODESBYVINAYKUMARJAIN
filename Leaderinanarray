@@ -1,0 +1,37 @@
+class Solution{
+    //Function to find the leaders in the array.
+    public:
+    vector<int> leaders(int a[], int n){
+        // Code here
+        /* int curr_max = 0;
+        vector<int> arr;
+        curr_max = a[n-1];
+        arr.push_back(curr_max);
+        for(int i=n-2;i>=0;i--){
+            if(a[i]>=curr_max){
+                arr.push_back(a[i]);
+                curr_max = a[i];
+            }
+        }
+        reverse(arr.begin(),arr.end());
+        return arr;
+        */
+         vector<int> ans;
+        
+        // traverse array from right
+        for(int i = n - 1; i >= 0; --i) {
+            // push last element (mentioned in Ques)
+            if(ans.empty())
+                ans.push_back(a[i]);
+            
+            // if current element is >= last element of ans (current max)
+            else if(a[i] >= ans.back())
+                ans.push_back(a[i]);
+        }
+        
+        // as we had traversed from right / last, we should reverse our answer vector
+        reverse(ans.begin(), ans.end());
+        
+        return ans;
+    }
+};
