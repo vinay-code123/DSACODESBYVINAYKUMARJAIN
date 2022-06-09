@@ -1,0 +1,25 @@
+   int maxi=arr[0];
+       for(int i=0;i<=r;i++){
+
+           if(maxi<arr[i]){
+               maxi=arr[i];
+           }
+       }
+      
+       int count_array[maxi];
+       for(int i=0;i<=maxi;i++){
+           count_array[i]=0;
+       }
+       for(int i=0;i<=r;i++){
+      
+           count_array[arr[i]]+=1;
+       }
+       for(int i=1;i<=maxi;i++){
+           count_array[i]+=count_array[i-1];
+       }
+       int sorted_array[r];
+       for(int i=r;i>=l;i--){
+           count_array[arr[i]]-=1;
+           sorted_array[count_array[arr[i]]]=arr[i];
+       }
+       return sorted_array[k-1];
