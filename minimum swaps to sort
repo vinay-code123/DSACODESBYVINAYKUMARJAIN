@@ -1,0 +1,19 @@
+ vector<int>temp = nums;
+	   int n = nums.size();
+	   sort(nums.begin(),nums.end());
+	   unordered_map<int,int>mp;
+	   for(int i=0;i<n;i++){
+	       mp[nums[i]]=i;
+	   }
+	   int swaps =0;
+	   for(int i=0;i<n;){
+	       if(mp[temp[i]]!=i){
+	           swap(temp[i],temp[mp[temp[i]]]);
+	           swaps++;
+	       }
+	       else{
+	           i++;
+	       }
+	   }
+	   return swaps;
+	}
