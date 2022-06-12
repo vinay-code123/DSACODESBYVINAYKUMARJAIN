@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int findMidSum(int arr1[], int arr2[], int n) {
+            // code here 
+       int i=0;
+       int j=0;
+       int s = 0;
+       
+       int *a = new int [n+n];
+       
+       while(i<n && j<n){
+           if(arr1[i] <= arr2[j]){
+               a[s++] = arr1[i++];
+           }
+           else{
+               a[s++] = arr2[j++];
+           }
+       }
+       while(i<n){
+           a[s++] = arr1[i++];
+       }
+       while(j<n){
+           a[s++] = arr2[j++];
+       }
+       
+       int ans = a[n-1]+a[n];
+    return ans;
+    }
+    };
