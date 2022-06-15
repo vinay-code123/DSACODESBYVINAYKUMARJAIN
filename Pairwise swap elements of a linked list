@@ -1,0 +1,25 @@
+class Solution
+{
+    public:
+    Node* pairWiseSwap(struct Node* head) 
+    {
+        // The task is to complete this method
+        if(!head||!head->next)return head;
+       Node*curr=head;
+       head=head->next;
+       Node* prev=NULL;
+       Node* nxt=NULL;
+       while(curr&&curr->next){
+           nxt=curr->next;
+           curr->next=nxt->next;
+           nxt->next=curr;
+           if(prev){
+               prev->next=nxt;
+           }
+           prev=curr;
+           curr=curr->next;
+           
+       }
+       return head;
+    }
+};
