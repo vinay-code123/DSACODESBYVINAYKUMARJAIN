@@ -1,0 +1,22 @@
+
+string firstRepChar(string s)
+{
+    //code here.
+     int n=s.length();
+       string ans="";
+
+
+       unordered_set<char> k;
+       
+       for(int i=0;i<n;i++){
+           if(k.find(s[i]) != k.end()){
+               ans=s[i];
+               return ans;
+           }
+           else{
+               k.insert(s[i]);
+           }
+       }
+       
+       return "-1";
+}
