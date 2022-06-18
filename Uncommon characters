@@ -1,0 +1,52 @@
+ public:
+        string UncommonChars(string A, string B)
+        {
+            // code here
+           map<char,int> a;
+           map<char,int> b;
+           map<char,int> unique;
+           string str = "" ;
+           string res = "" ;
+           
+           for(int i=0; i< A.length();i++)
+           {
+               a[A[i]]++;
+           }
+           for(int i=0;i<B.length();i++){
+               b[B[i]]++;
+           }
+           
+           for(int i=0;i<A.length();i++){
+               if(b[A[i]]==0)
+                   str += A[i];
+           }
+           for(int i=0;i<B.length();i++){
+               if(a[B[i]]==0)
+                   str += B[i];
+           }
+           
+           if(str == "")
+               return "-1";
+               
+           sort(str.begin(),str.end());
+           
+           for(int i=0; i<str.length();i++){
+               unique[str[i]] = 1;
+           }
+               
+           
+           for(int i=0; i<str.length();i++){
+               
+               if(unique[str[i]] == 1){
+                   res += str[i];
+                   unique[str[i]] = 0;
+               }
+           }
+                   
+               
+               
+           
+           return res;
+           
+            
+        }
