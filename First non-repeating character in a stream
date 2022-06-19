@@ -1,0 +1,34 @@
+string FirstNonRepeating(string A){
+		    // Code here
+		      string ans="";
+     unordered_map<char,int>s;
+     deque<char>q;
+    
+     for(int i=0;i<A.size();i++)
+     {
+        s[A[i]]++;
+         while(!q.empty()&&s[q.front()]>1)
+         {
+             q.pop_front();
+         }
+         
+         if(!q.empty())
+         {
+             ans+=q.front();
+             
+         }
+         else if(s[A[i]]==1)
+         {
+             ans+=A[i];
+          
+         }
+         else
+         {
+             ans+='#';
+         }
+           if(s[A[i]]<=1)
+           q.push_back(A[i]);
+     }
+     return ans;
+     
+		}
