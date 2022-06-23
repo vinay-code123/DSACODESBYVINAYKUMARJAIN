@@ -1,0 +1,16 @@
+Node* LCA(Node *root, int n11, int n22)
+{
+   //Your code here
+    while(root!=NULL){
+       if(root->data > n11 && root->data > n22){
+           root = root->left;
+       }
+       else if(root->data < n11 && root->data < n22){
+           root = root->right;
+       }
+       else{
+           break;
+       }
+   }
+   return root;
+}
