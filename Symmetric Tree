@@ -1,0 +1,29 @@
+bool fun(Node* root1,Node* root2){
+       if(root1 && !root2){
+           return false;
+       }
+       if(root1 == NULL && root2 == NULL){
+           return true;
+       }
+       if(!root1 && root2){
+           return false;
+       }
+       if(root1->data != root2->data){
+           return false;
+       }
+       
+       bool left1=fun(root1->left,root2->right);
+       bool right1=fun(root1->right,root2->left);
+       
+       return left1 && right1;
+       
+   }
+    bool isSymmetric(struct Node* root)
+    {
+	    // Code here
+	    if(root == NULL )
+	    {
+	        return true;
+	    }
+	    return fun(root->left,root->right);
+    }
