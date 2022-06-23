@@ -1,0 +1,29 @@
+ Node* prev = NULL;
+    Node* head = NULL;
+    
+    void order(Node* node){
+        if(! node){
+            return;
+        }
+        
+        order(node->left);
+        
+        node->left = prev;
+        if(! prev){
+            head = node;
+        }
+        else{
+            prev->right = node;
+        }
+        prev = node;
+        
+        order(node->right);
+    }
+    
+    
+    Node * bToDLL(Node *root)
+    {
+        // your code here
+          order(root);
+        return head;
+    }
