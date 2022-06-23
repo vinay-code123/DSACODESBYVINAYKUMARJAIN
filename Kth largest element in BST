@@ -1,0 +1,18 @@
+void func(Node *root, int k, int &c, int &ans){
+       if(!root)return;
+       func(root->right,k,c,ans);
+       c++;
+       if(c==k){
+           ans=root->data;
+           return;
+       } 
+       func(root->left,k,c,ans);
+   }
+    int kthLargest(Node *root, int K)
+    {
+        //Your code here
+         int ans;
+       int c=0;
+       func(root,K,c,ans);
+       return ans;
+    }
