@@ -1,0 +1,19 @@
+bool dfs(int node, vector<int> &vis, vector<int> adj[]){
+        vis[node]=1;
+        
+        for(auto child: adj[node]){
+            if(vis[child]==0){ //child node not visited yet
+                if(dfs(child,vis,adj)){
+                    return true; //returning true if child node return presence of cycle
+                }
+            }
+            
+            else if(vis[child]==1){ //node is still under processing and appeared again
+                return true; //then there is back edge, finally cycle
+            }
+        }
+        
+        vis[node]=2; //marks evaluation is complete
+        return false;
+    }
+    
