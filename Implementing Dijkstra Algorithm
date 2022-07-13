@@ -1,0 +1,21 @@
+ vector <int> dijkstra(int V, vector<vector<int>> adj[], int src)
+    {
+        // Code here
+        vector<int> dist(V,INT_MAX);
+       queue<int> q;
+       dist[src] = 0;
+       q.push(src);
+       
+       while(!q.empty()){
+           int node = q.front();
+           q.pop();
+           for(auto child : adj[node]){
+               if(dist[child[0]] > dist[node]+child[1]){
+                   dist[child[0]] = dist[node]+child[1];
+                   q.push(child[0]);
+               }
+           }
+       }
+       
+       return dist;
+    }
