@@ -1,0 +1,34 @@
+ queue<pair<int,int>> q;
+       int n = grid.size();
+       int m = grid[0].size();
+       vector<vector<int>> dist(n,vector<int>(m,-1));
+       for(int i=0;i<n;i++){
+           for(int j=0;j<m;j++){
+               if(grid[i][j] == 2){
+                   dist[i][j] = 0;
+                   q.push({i,j});
+               }
+           }
+       }
+       int dx[] = {-1,1,0,0};
+       int dy[] = {0,0,1,-1};
+       while(q.size()){
+           int x = q.front().first;
+           int y = q.front().second;
+           q.pop();
+           for(int i=0;i<4;i++){
+               int nx = x + dx[i];
+               int ny = y + dy[i];
+               if(nx<0 or ny<0 or nx>n-1 or ny>m-1 or grid[nx][ny] != 1 or dist[nx][ny] != -1)continue;
+               dist[nx][ny] = dist[x][y] + 1;
+               q.push({nx,ny});
+           }
+       }
+       int mx = 0;
+       for(int i=0;i<n;i++){
+           for(int j=0;j<m;j++){
+               if(dist[i][j] == -1 && grid[i][j] == 1)return -1;
+               mx = max(mx,dist[i][j]);
+           }
+       }
+       return mx;
