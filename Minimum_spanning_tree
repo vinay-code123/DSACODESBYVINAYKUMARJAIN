@@ -1,0 +1,28 @@
+ int spanningTree(int v, vector<vector<int>> adj[])
+    {
+        // code here
+        int result=0;
+     
+     vector<int> key(v,INT_MAX);
+     vector<bool> mset(v,false);
+     key[0]=0;
+     for(int k=0;k<v;k++)
+     {
+         int source=-1;
+         for(int i=0;i<v;i++)
+         {
+           if(!mset[i] && (source==-1 || key[i] < key[source]))
+           source=i;
+         }
+         
+         mset[source]=true;
+         result+=key[source];
+         for(int j=0;j<adj[source].size();j++)
+         {
+             if(adj[source][j][1]!=0 && !mset[adj[source][j][0]])
+             key[adj[source][j][0]]=min(key[adj[source][j][0]],adj[source][j][1]);
+         }
+     }
+     
+     return result;
+    }
