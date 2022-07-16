@@ -1,0 +1,26 @@
+ 
+    int ans=0;
+   bool DFS(vector<int> adj[],int src,int des,int vis[])
+   {
+       vis[src]=1;
+       for(auto x:adj[src])
+       {
+           if(vis[x]==0)
+           {
+               if(x==des)
+               ans++;
+               DFS(adj,x,des,vis);
+               vis[x]=0;
+           }
+       }
+       return true;
+   }
+    
+    int countPaths(int V, vector<int> adj[], int source, int destination) {
+        // Code here
+           int vis[V]={0};
+       if(source==destination)
+       return 1;
+       DFS(adj,source,destination,vis);
+       return ans;
+    }
