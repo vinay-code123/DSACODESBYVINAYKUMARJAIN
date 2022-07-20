@@ -1,0 +1,33 @@
+ void solve(map <int, int> mp, int n, vector <int> op, set < vector <int> > &s) {
+        if(n == 0) {
+            s.insert(op);
+            return;
+        }
+        
+        for(auto x: mp) {
+            int N = x.second, num = x.first;
+            for(int i = 0; i < N; i++) {
+                mp[num]--;
+                op.push_back(num);
+                
+                solve(mp, n - 1, op, s);
+                
+                op.pop_back();
+                mp[num]++;
+            }
+        }
+    }
+    vector<vector<int>> uniquePerms(vector<int> arr ,int n) {
+        // code here
+      map <int, int> mp;
+        for(auto x: arr) mp[x]++;
+        vector < vector <int> > ans;
+        set < vector <int> > s;
+        
+        solve(mp, n, {}, s);
+        
+        for(auto x: s) ans.push_back(x);
+        
+        return ans;
+        
+    }
