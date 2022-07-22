@@ -1,0 +1,13 @@
+  void segregate0and1(int nums[], int n) {
+        // code here
+         int i = 0;
+        int j = 0;
+        while(i!=n){
+            if(nums[i] == 1){
+                i++;
+            }else{
+                swap(nums[i],nums[j]);
+                i++;j++;
+            }
+        }
+    }
