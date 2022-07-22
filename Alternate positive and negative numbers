@@ -1,0 +1,25 @@
+void rearrange(int a[], int n) {
+	    // code here
+	     vector<int>ne,p;
+	  for(int i=0;i<n;i++)
+	  {if(a[i]<0) 
+	        {ne.push_back(a[i]); }
+	  
+	  else {
+	  p.push_back(a[i]);}
+	  }
+	  
+	  int i=0,j=0,k=0;
+	  while(j<n && i<p.size() && k<ne.size())
+	  {
+	      a[j]=p[i];
+	      if(j+1>=n) break;
+	      a[j+1]=ne[k];
+	      j+=2;
+	      i++;
+	      k++;
+	  }
+	  
+	 for(;i<p.size();i++) {a[j]=p[i]; j++;}
+	 for(;k<ne.size();k++) {a[j]=ne[k]; j++;}
+	}
