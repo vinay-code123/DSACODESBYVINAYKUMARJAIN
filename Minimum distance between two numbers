@@ -1,0 +1,23 @@
+ int minDist(int a[], int n, int x, int y) {
+       // code here
+    int pos_x = -1, pos_y = -1, min_diff = INT_MAX, flag = 0;
+       for(int i=0; i<n; i++) {
+           if(a[i] == x) { // if x is reached save it's position
+               pos_x = i;
+           } else if(a[i] == y) { // if y is reached save it's position
+               pos_y = i;
+           }
+           if(pos_x != -1 && pos_y != -1) { // if both x and y reached
+               int curr_diff = abs(pos_x - pos_y); // calculate diff
+               if(curr_diff < min_diff) { //check if current diff is less than minimum diff
+                   min_diff = curr_diff; // assign minimum diff to current diff
+                   flag = 1; // flag to make sure we found the minimum diff
+               }
+           }
+       }
+       if(flag) {
+           return min_diff; 
+       } else {
+           return -1;
+       }
+  }
