@@ -1,0 +1,11 @@
+  string MaxNumber(int a[], int n)
+        {
+           //code here.
+           string ans = "";
+           sort(a,a+n,greater<int >());
+           for(int i=0;i<n;i++)
+           {
+               ans.push_back(a[i]+'0');
+           }
+           return ans;
+        }  
