@@ -1,0 +1,25 @@
+ string longestCommonPrefix (string arr[], int N)
+    {
+        // your code here
+          string x=arr[0];
+        int ans=-1;
+        for(int i=0;i<x.length();i++){
+            for(int j=1;j<N;j++){
+                string y=arr[j];
+                if(x[i]!=y[i]){
+                    if(ans==-1){
+                        return "-1";
+                    }
+                    return x.substr(0,ans+1);
+                }
+            }
+            ans=i;
+        }
+        if(ans==-1){
+            return "-1";
+        }else{
+            x=x.substr(0,ans+1);
+            return x;
+        
+    }
+    }
