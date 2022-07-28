@@ -1,0 +1,20 @@
+void rev(string& str, int i){
+    if(str.size() == 1){
+        return;
+    }
+    
+    if(i > str.size()/2 - 1){
+        return;
+    }
+    
+    swap(str[i], str[str.size() - i - 1]);
+    
+    rev(str, i + 1);
+}
+
+string reverseWord(string str){
+    
+  //Your code here
+  rev(str, 0);
+  return str;
+}
