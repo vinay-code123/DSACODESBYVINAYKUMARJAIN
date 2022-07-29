@@ -1,0 +1,21 @@
+char change(char c)
+{
+   if(c=='1')return '0';
+   return '1';
+}
+int minFlips (string S)
+{
+    // your code here
+      char prior1='1';
+  char prior2='0';
+   int c1=0,c2=0;
+   for(char x:S)
+   {
+       if(x!=prior1)c1++;
+       prior1=change(prior1);
+       if(x!=prior2)c2++;
+       prior2=change(prior2);
+   }
+   int ans=min(c1,c2);
+   return ans;
+}
