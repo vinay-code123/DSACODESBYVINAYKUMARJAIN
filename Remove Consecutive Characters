@@ -1,0 +1,15 @@
+string removeConsecutiveCharacter(string S)
+    {
+        // code here.
+        string newstr = "";
+        for( int i=1; i<S.length(); i++ )
+        {
+            if( S[i] != S[i-1] )
+            {
+                newstr += S[i-1];
+            }
+        }
+        newstr += S[S.length()-1];
+        
+        return newstr;
+    }
